@@ -1,0 +1,10 @@
+body{
+    background-color: gainsboro;
+}
+
+.categories-container {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 16px;
+    padding: 16px;
+}
