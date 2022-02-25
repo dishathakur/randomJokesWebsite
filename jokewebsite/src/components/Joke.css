@@ -1,0 +1,36 @@
+.joke-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 8px;
+}
+
+.joke-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(77, 145, 233);
+    padding: 18px;
+    text-align: justify;
+}
+
+.category-name {
+    text-transform: capitalize;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px;
+}

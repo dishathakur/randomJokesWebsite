@@ -1,38 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+//css
 import './Categories.css';
+//components
+import Header from './Header';
+import Joke from './Joke';
 
-function Categories({ setCategory }) {
+function Categories() {
 
     const [data, setData] = useState([])
+    const [categoryName, setCategoryName] = useState("")
 
     useEffect(() => {
         fetch('https://api.chucknorris.io/jokes/categories')
             .then(e => e.json())
             .then(res => setData(res))
+
     }, [])
 
-    const getCategory = (name) => {
-        console.log(name)
-        // setCategory(name)
-    }
-
     return (
-        <>
-            {data.map(e =>
-                <div
-                    className='categories-container'
-                    onClick={() => setCategory(e)}
-                    key={e}
-                >
-                    <Link to={`/joke/category/${e}`}>
-                        <p>
+        <div className='page-container'>
+            <Header title="Chuck Norries" />
+            <div className='content-container'>
+                <div className='grid-container'>
+                    {data.map(e =>
+                        <div
+                            className='categories-container'
+                            onClick={() => setCategoryName(e)}
+                            key={e}
+                        >
                             {e}
-                        </p>
-                    </Link>
+                        </div>
+                    )}
                 </div>
-            )}
-        </>
+                {categoryName !== "" ? <Joke categoryName={categoryName} /> : ""}
+            </div>
+        </div>
     )
 }
 
